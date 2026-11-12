@@ -499,3 +499,48 @@ Use a metadata-driven framework to minimise code changes when onboarding new dat
 | worldpay files | bronze_worldpay | silver_payments | transaction_summary |
 | adyen files | bronze_adyen | silver_payments | transaction_summary |
 | stripe files | bronze_stripe | silver_payments | transaction_summary |
+
+
+## Security and Governance Design
+
+### Data Classification
+
+The platform contains:
+
+- Customer Personal Data
+- Contact Information
+- National Insurance Numbers
+- Account Information
+- Transaction Information
+
+### Sensitive Data
+
+The following fields are considered sensitive:
+
+- ni_number
+- email
+- phone_number
+- address information
+
+### Data Protection Approach
+
+The platform will:
+
+- Restrict access to sensitive data.
+- Apply masking where appropriate.
+- Use role-based access controls.
+- Ensure only authorised users can access customer information.
+
+### Governance Controls
+
+- Source-to-target lineage documented.
+- Audit records maintained for all loads.
+- Data quality checks performed during Silver processing.
+- Metadata captured for all onboarded datasets.
+
+### Future Enhancements
+
+- Column-level security
+- Row-level security
+- Automated data quality monitoring
+- Data catalogue integration
