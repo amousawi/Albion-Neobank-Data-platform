@@ -435,3 +435,52 @@ Records must contain a valid transaction timestamp.
 
 Rule 4:
 Provider name must be populated.
+
+## Risks and Constraints
+
+### Risk 1 - Databricks Free Edition Limitations
+
+Risk:
+Some enterprise features may not be available within the free environment.
+
+Mitigation:
+Use alternative implementations where necessary and document any deviations from the target design.
+
+---
+
+### Risk 2 - Multiple Source Formats
+
+Risk:
+Data is received in both CSV and JSONL formats.
+
+Mitigation:
+Implement standardised ingestion processes and validation rules within the Bronze layer.
+
+---
+
+### Risk 3 - Data Quality Issues
+
+Risk:
+Future datasets may contain duplicate or missing records.
+
+Mitigation:
+Implement validation, duplicate detection and audit reporting within the Silver layer.
+
+---
+
+### Risk 4 - Source System Growth
+
+Risk:
+Additional source systems may need to be onboarded in future.
+
+Mitigation:
+Use a metadata-driven framework to minimise code changes when onboarding new data sources.
+
+---
+
+## Assumptions
+
+- Source files will continue to be delivered in CSV and JSONL formats.
+- Customer, account and transaction identifiers remain unique.
+- Databricks volumes remain available for storing incoming files.
+- GitHub will be used for version control throughout the project.
