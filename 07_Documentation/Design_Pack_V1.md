@@ -365,3 +365,73 @@ During each ingestion process:
 | B001 | customers.csv | 3000 | SUCCESS |
 | B002 | accounts.csv | 4667 | SUCCESS |
 | B003 | transactions.csv | 60000 | SUCCESS |
+
+## Business Validation Rules Design
+
+### Customer Rules
+
+Rule 1:
+customer_id must be present and unique.
+
+Rule 2:
+email must not be null.
+
+Rule 3:
+kyc_status must contain one of the following values:
+
+- VERIFIED
+- EXPIRED
+- REJECTED
+
+---
+
+### Account Rules
+
+Rule 1:
+account_id must be present and unique.
+
+Rule 2:
+customer_id must exist within the Customers dataset.
+
+Rule 3:
+branch_code must exist within the Branches dataset.
+
+Rule 4:
+balance cannot be null.
+
+---
+
+### Transaction Rules
+
+Rule 1:
+txn_id must be present and unique.
+
+Rule 2:
+account_id must exist within the Accounts dataset.
+
+Rule 3:
+amount must be greater than zero.
+
+Rule 4:
+txn_type must contain one of the following values:
+
+- CREDIT
+- DEBIT
+- TRANSFER
+- INTEREST
+
+---
+
+### Payment Validation Rules
+
+Rule 1:
+Payment identifiers must be unique.
+
+Rule 2:
+Amounts cannot be null.
+
+Rule 3:
+Records must contain a valid transaction timestamp.
+
+Rule 4:
+Provider name must be populated.
