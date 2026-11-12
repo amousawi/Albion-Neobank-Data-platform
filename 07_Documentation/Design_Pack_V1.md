@@ -211,4 +211,73 @@ Produce:
 
 ▼
 
+## Medallion Layer Design
+
+### Bronze Layer
+
+Purpose:
+Store raw source data with minimal transformation.
+
+Tables:
+
+- bronze_customers
+- bronze_accounts
+- bronze_branches
+- bronze_transactions
+- bronze_cra
+- bronze_checkoutcom
+- bronze_worldpay
+- bronze_adyen
+- bronze_stripe
+
+Additional metadata columns:
+
+- ingestion_timestamp
+- source_file_name
+- batch_id
+
+---
+
+### Silver Layer
+
+Purpose:
+Store cleansed and validated data.
+
+Tables:
+
+- silver_customers
+- silver_accounts
+- silver_branches
+- silver_transactions
+- silver_payments
+
+Transformations:
+
+- Data type conversion
+- Duplicate removal
+- Null validation
+- Data standardisation
+- Business rule validation
+
+---
+
+### Gold Layer
+
+Purpose:
+Provide business-ready datasets.
+
+Tables:
+
+- gold_customer_summary
+- gold_account_summary
+- gold_transaction_summary
+- gold_branch_performance
+
+Business Outputs:
+
+- Customer metrics
+- Account metrics
+- Transaction KPIs
+- Branch performance reporting
+
 Dashboard and Reporting Layer
