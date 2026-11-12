@@ -318,3 +318,50 @@ For each source dataset the platform will store:
 | Accounts | CSV | bronze_accounts | account_id |
 | Transactions | CSV | bronze_transactions | txn_id |
 | Adyen | JSONL | bronze_adyen | payment_id |
+
+## Audit and Logging Design
+
+### Purpose
+
+The audit framework will provide visibility of all data processing activities and support operational monitoring.
+
+### Audit Information Captured
+
+The platform will record:
+
+- Source system
+- Source file name
+- Batch identifier
+- Load start time
+- Load end time
+- Record count
+- Success status
+- Failure status
+- Error message
+
+### Audit Process
+
+During each ingestion process:
+
+1. Load starts
+2. Start timestamp captured
+3. File processed
+4. Record counts calculated
+5. Success or failure status recorded
+6. End timestamp captured
+
+### Benefits
+
+- Traceability
+- Operational monitoring
+- Failure investigation
+- Data quality reporting
+- Historical load tracking
+
+### Example Audit Record
+
+| Batch ID | Source | Records | Status |
+|-----------|----------|----------|----------|
+| B001 | customers.csv | 3000 | SUCCESS |
+| B002 | accounts.csv | 4667 | SUCCESS |
+| B003 | transactions.csv | 60000 | SUCCESS |
