@@ -484,3 +484,18 @@ Use a metadata-driven framework to minimise code changes when onboarding new dat
 - Customer, account and transaction identifiers remain unique.
 - Databricks volumes remain available for storing incoming files.
 - GitHub will be used for version control throughout the project.
+
+## Source-to-Target Mapping
+
+| Source File | Bronze Table | Silver Table | Gold Usage |
+|------------|------------|------------|------------|
+| customers.csv | bronze_customers | silver_customers | customer_summary |
+| accounts.csv | bronze_accounts | silver_accounts | account_summary |
+| branches.csv | bronze_branches | silver_branches | branch_performance |
+| transactions.csv | bronze_transactions | silver_transactions | transaction_summary |
+| cra_2026-09_part1.csv | bronze_cra | silver_transactions | transaction_summary |
+| cra_2026-09_part2.csv | bronze_cra | silver_transactions | transaction_summary |
+| checkoutcom files | bronze_checkoutcom | silver_payments | transaction_summary |
+| worldpay files | bronze_worldpay | silver_payments | transaction_summary |
+| adyen files | bronze_adyen | silver_payments | transaction_summary |
+| stripe files | bronze_stripe | silver_payments | transaction_summary |
