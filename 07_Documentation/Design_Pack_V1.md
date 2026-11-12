@@ -281,3 +281,40 @@ Business Outputs:
 - Branch performance reporting
 
 Dashboard and Reporting Layer
+
+## Metadata Framework Design
+
+### Purpose
+
+The metadata framework will allow source systems and files to be onboarded without requiring significant code changes.
+
+### Metadata Captured
+
+For each source dataset the platform will store:
+
+- Source system name
+- Source file name
+- File format
+- Target Bronze table
+- Load type
+- Primary key
+- Ingestion timestamp
+- Batch identifier
+- Processing status
+
+### Benefits
+
+- Configuration-driven ingestion
+- Simplified onboarding of new datasets
+- Improved auditability
+- Reduced maintenance effort
+- Consistent processing across sources
+
+### Example Metadata Record
+
+| Source System | File Format | Bronze Table | Primary Key |
+|---------------|-------------|--------------|------------|
+| Customers | CSV | bronze_customers | customer_id |
+| Accounts | CSV | bronze_accounts | account_id |
+| Transactions | CSV | bronze_transactions | txn_id |
+| Adyen | JSONL | bronze_adyen | payment_id |
