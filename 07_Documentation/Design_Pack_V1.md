@@ -158,3 +158,57 @@ Accounts:
 
 Transactions:
 - account_id
+
+## Data Flow Design
+
+The platform will process data through the following stages:
+
+Source Files
+│
+├── CSV Files
+│     ├── Customers
+│     ├── Accounts
+│     ├── Branches
+│     ├── Transactions
+│     ├── CRA
+│     ├── Checkout.com
+│     └── Worldpay
+│
+├── JSONL Files
+│     ├── Adyen
+│     └── Stripe
+│
+▼
+
+Managed Volume
+(albion.default.albion_source_files)
+
+▼
+
+Bronze Layer
+
+Store source data in its original structure with audit metadata.
+
+▼
+
+Silver Layer
+
+Apply:
+- Data type conversion
+- Duplicate removal
+- Business validation
+- Standardisation
+
+▼
+
+Gold Layer
+
+Produce:
+- Reporting datasets
+- KPI datasets
+- Dashboard datasets
+- Business analytics outputs
+
+▼
+
+Dashboard and Reporting Layer
